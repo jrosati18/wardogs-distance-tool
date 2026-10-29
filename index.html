@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Wardogs Direction Finder</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="panel">
+        <div class="header">
+          <span class="badge">Wardogs</span>
+          <h1>Direction & Distance Calculator</h1>
+          <button type="button" id="clear-all" class="header-clear">Clear All</button>
+        </div>
+
+        <div class="team-color-row">
+          <label>
+            <span>Select your Team</span>
+            <select id="team-color">
+              <option value="Red">Red</option>
+              <option value="Green">Green</option>
+              <option value="Blue">Blue</option>
+            </select>
+          </label>
+        </div>
+
+        <div id="result" class="single-result-card" aria-live="polite">
+          <div class="result-metric">
+            <span class="label">Direction</span>
+            <strong id="direction">--</strong>
+          </div>
+          <div class="result-metric">
+            <span class="label">Bearing</span>
+            <strong id="bearing">--</strong>
+          </div>
+          <div class="result-metric">
+            <span class="label">Distance</span>
+            <strong id="distance">--</strong>
+          </div>
+        </div>
+
+        <form id="calc-form" class="calculator">
+          <div class="location-group">
+            <h2>From Position</h2>
+            <div class="field-row">
+              <label>
+                <span>X</span>
+                <input id="from-x" type="number" step="any" value="120" required />
+              </label>
+              <label>
+                <span>Y</span>
+                <input id="from-y" type="number" step="any" value="80" required />
+              </label>
+            </div>
+            <div id="from-objects" class="position-list" aria-live="polite"></div>
+          </div>
+
+          <div class="location-group">
+            <h2>Target Position</h2>
+            <div class="field-row">
+              <label>
+                <span>X</span>
+                <input id="to-x" type="number" step="any" value="121" required />
+              </label>
+              <label>
+                <span>Y</span>
+                <input id="to-y" type="number" step="any" value="81" required />
+              </label>
+            </div>
+            <div id="target-objects" class="position-list" aria-live="polite"></div>
+          </div>
+        </form>
+
+        <div class="location-group tracked-group">
+          <h2>Objects of Interest</h2>
+
+          <form id="object-form" class="object-form">
+            <div class="field-row">
+              <label>
+                <span>Name</span>
+                <input id="object-name" type="text" placeholder="FOB" required />
+              </label>
+              <label>
+                <span>Type</span>
+                <select id="object-type">
+                  <option value="Friendly">Friendly</option>
+                  <option value="Target">Target</option>
+                </select>
+              </label>
+            </div>
+
+            <div class="field-row">
+              <label>
+                <span>X</span>
+                <input id="object-x" type="number" step="any" value="220" required />
+              </label>
+              <label>
+                <span>Y</span>
+                <input id="object-y" type="number" step="any" value="180" required />
+              </label>
+            </div>
+
+            <div class="field-row color-row">
+              <label id="target-color-wrap" class="hidden">
+                <span>Target Color</span>
+                <select id="object-color"></select>
+              </label>
+            </div>
+
+            <div class="object-actions">
+              <button type="submit" class="secondary">Save Object</button>
+              <button type="button" id="delete-all-objects" class="danger">Delete All</button>
+            </div>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
